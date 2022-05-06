@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- import important lib -->
+    <button id="start-camera">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<canvas id="canvas" width="320" height="240"></canvas>
+
+
+
+
+
+
+
+
+    
+    <form name="form_main">
+  <div>
+    <span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span>:<span id="millisecond">000</span>
+  </div>
+
+  <br />
+
+  <button type="button" name="start">start</button>
+  <button type="button" name="pause">pause</button>
+  <button type="button" name="reset">reset</button>
+</form>
+ 
+  </p>
+</div>
+    
+    <html><head>
+    </head><body>
+        <video src="" ></video>
+        <br />
+  
+    </body>
+    <script>
+      var front = false;
+    var video = document.querySelector('video');
+      document.getElementById('flipCamera').onclick = function() { front = !front; };
+     
+      var constraints = { video: { facingMode: (front? "user" : "environment"), width: 500, height:250 } };
+      navigator.mediaDevices.getUserMedia(constraints)
+      .then(function(mediaStream) {
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+        video.play();
+        function off(){
+          video.stop()
+        }
+    };
+    })
+    .catch(function(err) { console.log(err.name + ": " + err.message); })
+    </script></html>
+    <script src="./lib/p5.min.js"></script>
+    <script src="./lib/p5.dom.min.js"></script>
+    <script src="./lib/p5.sound.min.js"></script>
+    <script src="./lib/p5.play.js"></script>
+
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+  </body>
+</html>
